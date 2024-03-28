@@ -7,6 +7,7 @@
 
 library(metalite)
 library(forestly)
+library(shiny)
 
 adsl <- forestly::forestly_adsl
 adae <- forestly::forestly_adae
@@ -14,7 +15,7 @@ adsl$TRTA <- factor(adsl$TRT01A, levels = c("Xanomeline Low Dose", "Placebo"), l
 adae$TRTA <- factor(adae$TRTA, levels = c("Xanomeline Low Dose", "Placebo"), labels = c("Low Dose", "Placebo"))
 
 
-meta_forestly(
+ui <- meta_forestly(
     adsl,
     adae,
     population_term = "apat",
@@ -24,3 +25,5 @@ meta_forestly(
   format_ae_forestly() |>
   ae_forestly()
 
+server <- function(input, output, session) {}
+shinyApp(ui, server)
