@@ -15,11 +15,11 @@ adae$TRTA <- factor(adae$TRTA, levels = c("Xanomeline Low Dose", "Placebo"), lab
 
 
 meta_forestly(
-  adsl,
-  adae,
-  population_term = "apat",
-  observation_term = "wk12"
-) |>
+    adsl,
+    adae,
+    population_term = "apat",
+    observation_term = "wk12"
+  ) |>
   prepare_ae_forestly(parameter = "any;rel;ser") |>
   format_ae_forestly() |>
   ae_forestly()
